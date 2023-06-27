@@ -39,4 +39,8 @@ public class Tweet {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+    //Metodo que devuelve la fecha con el formato dia/mes/año
+    public String getFechaFormateada(){
+        return fecha.getDay()+"/"+fecha.getMonth()+"/"+fecha.getYear();
+    }
 }
