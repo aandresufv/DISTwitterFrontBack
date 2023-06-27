@@ -33,10 +33,10 @@ public class Tweets {
     public void addTweet(Tweet tweet){
         tweets.add(tweet);
     }
-    //Metodo que devuelve un tweet por su nombre
-    public Tweet getTweetPorNombre(String nombre){
+    //Metodo que devuelve un tweet por su id
+    public Tweet getTweetById(int id){
         for (Tweet tweet: tweets) {
-            if (tweet.getNombre().equalsIgnoreCase(nombre)){
+            if (tweet.getId() == id){
                 return tweet;
             }
         }
