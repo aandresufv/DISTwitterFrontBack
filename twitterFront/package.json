@@ -276,7 +276,7 @@
       "workbox-core": "6.5.4",
       "workbox-precaching": "6.5.4"
     },
-    "hash": "31cba135481d781990b5b344f5c0261c0a60a312fb1ee5fac80368af1db696a5"
+    "hash": "9b9d789dba177ed3ec0f1bd5ba42a1834f2c3dd60ec261c709fb936c5546545c"
   },
   "overrides": {
     "@vaadin/bundles": "$@vaadin/bundles",
