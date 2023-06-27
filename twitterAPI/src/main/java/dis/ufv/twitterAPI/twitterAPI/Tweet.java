@@ -1,12 +1,16 @@
 package dis.ufv.twitterAPI.twitterAPI;
+import java.util.Date;
 
 public class Tweet {
     // nombre, mensaje, fecha
     private String nombre;
     private String mensaje;
-    private String fecha;
+    private Date fecha;
 
-    public Tweet(String nombre, String mensaje, String fecha) {
+    public Tweet() {
+    }
+
+    public Tweet(String nombre, String mensaje, Date fecha) {
         this.nombre = nombre;
         this.mensaje = mensaje;
         this.fecha = fecha;
@@ -28,11 +32,11 @@ public class Tweet {
         this.mensaje = mensaje;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 }
