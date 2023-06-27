@@ -25,7 +25,7 @@ public class Tweets {
         for (Tweet tweet: tweets) {
             System.out.println("Nombre: "+tweet.getNombre());
             System.out.println("Mensaje: "+tweet.getMensaje());
-            System.out.println("Fecha: "+tweet.getFechaFormateada());
+            //System.out.println("Fecha: "+tweet.getFechaFormateada());
             System.out.println("-------------------------------");
         }
     }
