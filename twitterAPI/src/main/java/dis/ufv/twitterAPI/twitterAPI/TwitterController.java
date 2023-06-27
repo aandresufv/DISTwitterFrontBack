@@ -11,8 +11,9 @@ public class TwitterController {
     ArrayList<Tweet> listaTweets = new ArrayList<>();
     @GetMapping("/tweets")
     public ArrayList<Tweet> getTweets(){
-        return new LectorJSON().LeerJSON("./src/main/resources/tweets.json");
+        return new LectorJSON().LeerJSON("tweets.json");
     }
+
     //Metodo que escribe un tweet en el fichero JSON y si no existe lo crea
     @PostMapping("/tweet")
     public void postTweet(@RequestBody String stringtweet) {
@@ -24,12 +25,12 @@ public class TwitterController {
         tweet.setId((int) (Math.random() * 999999 + 100000));
         listaTweets.add(tweet);
         //Se escriben los tweets del arraylist en el fichero JSON
-        new LectorJSON().escribirJSON("./src/main/resources/tweets.json", listaTweets);
+        new LectorJSON().escribirJSON("tweets.json", listaTweets);
     }
     @GetMapping("/tweet/{id}")
     public Tweet getTweetById(@PathVariable int id){
         //Se lee el fichero JSON y se carga en un arraylist
-        listaTweets = new LectorJSON().LeerJSON("./src/main/resources/tweets.json");
+        listaTweets = new LectorJSON().LeerJSON("tweets.json");
         //Se busca el tweet por su id
         for (Tweet tweet: listaTweets) {
             if (tweet.getId() == id){
@@ -41,14 +42,14 @@ public class TwitterController {
     @DeleteMapping("/deletetweet/{id}")
     public void deleteTweetById(@PathVariable int id){
         //Se lee el fichero JSON y se carga en un arraylist
-        listaTweets = new LectorJSON().LeerJSON("./src/main/resources/tweets.json");
+        listaTweets = new LectorJSON().LeerJSON("tweets.json");
         //Se busca el tweet por su id
         for (Tweet tweet: listaTweets) {
             if (tweet.getId() == id){
                 //Se elimina el tweet del arraylist
                 listaTweets.remove(tweet);
                 //Se escriben los tweets del arraylist en el fichero JSON
-                new LectorJSON().escribirJSON("./src/main/resources/tweets.json", listaTweets);
+                new LectorJSON().escribirJSON("tweets.json", listaTweets);
                 return;
             }
         }

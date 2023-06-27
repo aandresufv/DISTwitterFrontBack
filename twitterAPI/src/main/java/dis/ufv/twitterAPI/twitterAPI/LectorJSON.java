@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ public class LectorJSON {
             FileReader reader = new FileReader(fichero);
             ArrayList<Tweet> listaTweets = new GsonBuilder().setDateFormat("dd-MM-yyyy").create().fromJson(reader, new TypeToken<ArrayList<Tweet>>(){}.getType());
             System.out.println("Lista de tweets cargada");
+            //Se cierra el reader
+            reader.close();
             return listaTweets;
 
         }catch (Exception e){
@@ -28,7 +31,10 @@ public class LectorJSON {
         try {
             Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy").create();
             String json = gson.toJson(listaTweets);
-            Files.write(Paths.get(fichero), json.getBytes());
+            FileWriter writer = new FileWriter(fichero);
+            writer.write(json);
+            writer.flush();
+            writer.close();
             System.out.println("Fichero JSON escrito");
         }catch (Exception e){
             e.printStackTrace();
